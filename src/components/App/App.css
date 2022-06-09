@@ -1,7 +1,6 @@
 .App {
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100%;
   font-family: 'Inter', Arial, sant-serif;
   text-rendering: optimizeLegibility;
-  
 }
