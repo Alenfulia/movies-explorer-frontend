@@ -18,7 +18,7 @@ const AboutMe = () => {
        </p>
        <ul className='about-me__social-links'>
          <li className='about-me__social-item'>
-           <a className='about-me__social-link' href='https://facebook.com/Alenfulia'>Facebook</a>
+           <a className='about-me__social-link' href='https://facebook.com/'>Facebook</a>
           </li>
          <li className='about-me__social-item'>
            <a className='about-me__social-link' href='https://github.com/Alenfulia'>Github</a>
