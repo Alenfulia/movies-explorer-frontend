@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from '../Header/Header';
 import './Promo.css';
 import promoBanner from '../../images/about-promo.jpg';

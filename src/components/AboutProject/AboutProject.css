@@ -17,8 +17,6 @@
 
 }
 
-.about-project__column {}
-
 .about-project__subtitle {
   font-size: 20px;
   font-weight: 400;
@@ -35,6 +33,7 @@
   display: flex;
   width: 100%;
 }
+
 .about-project__backend {
   display: flex;
   flex-basis: 228px;
@@ -70,6 +69,7 @@
   flex-basis: 912px;
   flex-direction: column;
 }
+
 .about-project__front {
   background-color: #F2F2F2;
   border-radius: 4px;
