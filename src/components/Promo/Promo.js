@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../Header/Header';
 import './Promo.css';
 import promoBanner from '../../images/about-promo.jpg';
 
@@ -14,7 +13,7 @@ const Promo = () => {
         <img className='promo__img' src={promoBanner}  alt='Баннер'/>
       </div>
       <button className='promo__button'>
-        <a className='promo__link' href='https://yandex.ru/'>Узнать больше</a>
+        <a className='promo__link' href='#about-project'>Узнать больше</a>
       </button>
     </section>
   )

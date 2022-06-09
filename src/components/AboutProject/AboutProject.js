@@ -3,7 +3,7 @@ import './AboutProject.css';
 
 const AboutProject = () => {
   return (
-    <section className='about-project'>
+    <section className='about-project' id='about-project'>
       <h2 className='about-project__title'>О проекте</h2>
       <div className='about-project__columns'>
         <div className='about-project__column'>
@@ -29,7 +29,7 @@ const AboutProject = () => {
             <span className='about-project__progress-label'>Back-end</span>
           </div>
           <div className='about-project__frontend'>
-          <div className='about-project__progress about-project__front'>4 неделя</div>
+          <div className='about-project__progress about-project__front'>4 недели</div>
             <span className='about-project__progress-label'>Front-end</span>
           </div>
         </div>

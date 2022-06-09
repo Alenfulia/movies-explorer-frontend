@@ -44,3 +44,48 @@
   padding: 0;
   color: #000;
 }
+
+@media (max-width: 768px) {
+
+  .footer {
+    padding: 79px 50px 20px;
+  }
+
+}
+
+@media (max-width: 510px) {
+
+  .footer {
+    padding: 79px 10px 10px;
+  }
+
+  .footer__text {
+    font-size: 12px;
+    line-height: 14.52px;
+  }
+
+  .footer__container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .footer__copyright {
+    font-size: 12px;
+    line-height: 14.52px;
+    margin: 0 auto;
+    color: #A0A0A0;
+    padding-top: 30px;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .footer__link {
+    font-size: 12px;
+    line-height: 14.52px;
+  }
+
+}

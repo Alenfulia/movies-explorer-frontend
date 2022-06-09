@@ -37,3 +37,37 @@
   float: right;
   padding-top: 19px;
 }
+
+@media (max-width: 768px) {
+
+  .portfolio {
+    margin: 91px 50px 90px;
+  }
+
+  .portfolio__item-link {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 510px) {
+
+  .portfolio {
+    margin: 69px 14px 70px;
+  }
+
+  .portfolio__title {
+    font-size: 14px;
+    margin: 0 0 40px;
+  }
+
+  .portfolio__item-link {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .portfolio__link-img {
+    height: 28px;
+    width: 18px;
+    padding-top: 0;
+  }
+}
