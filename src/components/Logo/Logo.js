@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../images/logo-header.svg';
 
 const Logo = () => {
   return (
-    <a className='logo__link' href='https://yandex.ru/'>
+    <Link to={'/'} className='logo__link'>
       <img src={logo} alt = 'Логотип'/>
-    </a>
+    </Link>
   )
 };
 
