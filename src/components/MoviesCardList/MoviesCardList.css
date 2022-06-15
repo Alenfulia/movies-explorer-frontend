@@ -30,3 +30,57 @@
   cursor: pointer;
   border: none;
 }
+
+@media (max-width: 1279px) {
+
+  .movies-list__list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 339px));
+
+  }
+}
+
+@media (max-width: 1205px) {
+
+  .movies-list__list {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 850px) {
+
+  .movies-list {
+    padding: 70px 30px 80px;
+  }
+
+  .movies-list__list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 339px));
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .movies-list__list {
+    row-gap: 30px;
+    column-gap: 30px;
+  }
+}
+
+@media (max-width: 320px) {
+
+  .movies-list {
+    padding: 40px 10px 80px;
+  }
+
+  .movies-list__list {
+    grid-template-columns: repeat(auto-fit, 300px);
+    row-gap: 14px;
+    column-gap: 24px;
+    padding: 0 0 61px;
+  }
+
+  .movies-list__more {
+    width: 200px;
+    height: 16px;
+  }
+}

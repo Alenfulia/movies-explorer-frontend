@@ -58,3 +58,47 @@
   position: relative;
   padding-bottom: 43px;
 }
+
+@media (max-width: 768px) {
+
+  .search {
+    max-width: 708px;
+    gap: 27px;
+    margin: 0 30px;
+  }
+
+}
+
+@media (max-width: 320px) {
+
+  .search {
+    max-width: 292px;
+    gap: 31px;
+    margin: 0 14px;
+  }
+
+  .search__form {
+    height: 56px;
+  }
+
+  .search__input:focus {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 20px 0 20px 12px;
+  }
+
+  .search__input::placeholder {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 20px 0 20px 12px;
+  }
+
+  .search__button {
+    top: 6px;
+    right: 5px;
+    width: 80px;
+    height: 44px;
+  }
+
+}
+
