@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .movies-list__list {
@@ -35,7 +36,6 @@
 
   .movies-list__list {
     grid-template-columns: repeat(auto-fit, minmax(300px, 339px));
-
   }
 }
 
@@ -43,6 +43,7 @@
 
   .movies-list__list {
     justify-content: center;
+
   }
 }
 
@@ -53,17 +54,10 @@
   }
 
   .movies-list__list {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 339px));
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  .movies-list__list {
     row-gap: 30px;
     column-gap: 30px;
   }
+
 }
 
 @media (max-width: 320px) {

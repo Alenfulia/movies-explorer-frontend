@@ -1,0 +1,138 @@
+.login {
+  margin: 232px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 396px;
+}
+
+.login__title {
+  padding: 40px 0;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29.05px;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 396px;
+}
+
+.login__fieldset {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login__label {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12.1px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 24px 0 0;
+}
+
+.login__input {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16.94px;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  padding: 5px 0 10px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.register__input::placeholder {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16.94px;
+}
+
+.login__btn-submit {
+  margin: 134px 0 16px;
+  width: 396px;
+  height: 45px;
+  background-color: #000;
+  color:#fff;
+  border: none;
+}
+
+.login__auth {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.login__auth-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  color: #A0A0A0;
+  padding: 0 6px 0;
+  margin: 0;
+}
+
+.login__auth-link {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+@media (max-width: 450px) {
+
+  .login {
+    margin: 56px auto 30px;
+    width: 260px;
+  }
+
+  .login__logo {
+    align-self: center;
+  }
+
+  .login__title {
+    padding: 50px auto 80px;
+    text-align: center;
+  }
+
+  .login__form {
+    width: 260px;
+  }
+
+  .login__input {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .login__input::placeholder {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .login__btn-submit {
+    margin: 222px auto 14px;
+    width: 260px;
+  }
+
+  .login__login-text {
+    font-size: 12px;
+    line-height: 14.52px;
+    padding: 0 7px 0;
+
+  }
+
+  .login__login-link {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 14.52px;
+  }
+}

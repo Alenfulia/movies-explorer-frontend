@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './NavigationLoggedIn.css';
 import accountImg from '../../images/navigation-login-avatar.svg';
 
+
 const NavigationLoggedIn = () => {
   return (
     <nav>

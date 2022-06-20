@@ -1,0 +1,55 @@
+.navigation-burger {
+  margin: 0;
+  padding: 0;
+
+}
+
+.navigation-burger__menu {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  height: 0;
+  max-height: 0px;
+  list-style-type: none;
+  padding-left: 0;
+  -webkit-transition: linear 1s;
+  transition: linear 1s;
+}
+
+.navigation-burger__menu.open {
+  height: auto;
+  max-height: 500px;
+  -webkit-transition: linear 1s;
+  transition: linear 1s;
+}
+
+.navigation-burger__icon {
+  position: relative;
+  right: 1%;
+  cursor: pointer;
+  top: 3px;
+}
+
+.navigation-burger__element {
+  float: none;
+  text-align: right;
+  text-decoration: none;
+  width: 100%;
+  margin: 0;
+  -webkit-transition: linear 1s;
+  transition: linear 1s;
+}
+
+.navigation-burger__link-films {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border-bottom: 1px solid white;
+  display: block;
+  margin: 0;
+  -webkit-transition: linear 1s;
+  transition: linear 1s;
+}
