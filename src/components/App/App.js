@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { useState } from 'react';
 import { Route, Switch, useRouteMatch, Redirect } from 'react-router-dom';
 
 import Header from '../Header/Header';
@@ -15,23 +15,25 @@ import './App.css';
 
 
 function App() {
+
+  const [loggedIn, setLoggedIn] = useState(true);
   const hideHeaderPaths = ['/not-found', '/signup', '/signin'];
   const hideFooterPaths = ['/not-found','/profile', '/signup', '/signin'];
 
   return (
     <div className='app'>
 
-      {useRouteMatch(hideHeaderPaths) ? null : <Header />}
+      {useRouteMatch(hideHeaderPaths) ? null : <Header loggedIn={loggedIn} />}
 
       <Switch>
         <Route path='/movies'>
-          <Movies />
+          <Movies loggedIn={loggedIn} />
         </Route>
         <Route path='/saved-movies'>
-          <SavedMovies />
+          <SavedMovies loggedIn={loggedIn} />
         </Route>
         <Route path='/profile'>
-          <Profile />
+          <Profile loggedIn={loggedIn} />
         </Route>
         <Route path='/signup'>
           <Register />
@@ -40,7 +42,7 @@ function App() {
           <Login />
         </Route>
         <Route path='/' exact>
-          <Main />
+          <Main loggedIn={loggedIn} />
         </Route>
         <Route path='/not-found'>
           <NotFound />

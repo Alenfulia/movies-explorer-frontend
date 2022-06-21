@@ -4,6 +4,7 @@ import Logo from '../Logo/Logo';
 import './Register.css';
 
 
+
 const Register = () => {
   return (
     <section className='register'>

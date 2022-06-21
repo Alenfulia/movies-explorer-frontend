@@ -27,7 +27,9 @@
   font-size: 13px;
   font-weight: 500;
   line-height: 15.73px;
-
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .movie-card__length {
