@@ -20,6 +20,7 @@ const Login = () => {
               minLength={2}
               maxLength={30}
               required={true}
+              validation
               />
           </label>
           <label className='login__label'>Пароль
@@ -31,6 +32,7 @@ const Login = () => {
               required={true}
               />
           </label>
+          <span className='login__error'>Что-то пошло не так...</span>
         </div>
         <button className='login__btn-submit' type='submit'>Войти</button>
       </form>
