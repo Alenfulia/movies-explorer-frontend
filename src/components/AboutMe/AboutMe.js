@@ -18,10 +18,10 @@ const AboutMe = () => {
        </p>
        <ul className='about-me__social-links'>
          <li className='about-me__social-item'>
-           <a className='about-me__social-link' href='https://facebook.com/'>Facebook</a>
+           <a className='about-me__social-link' href='https://facebook.com/' target='_blank' rel="noreferrer">Facebook</a>
           </li>
          <li className='about-me__social-item'>
-           <a className='about-me__social-link' href='https://github.com/Alenfulia'>Github</a>
+           <a className='about-me__social-link' href='https://github.com/Alenfulia' target='_blank' rel="noreferrer">Github</a>
          </li>
        </ul>
      </div>

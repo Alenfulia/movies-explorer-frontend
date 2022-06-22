@@ -20,8 +20,7 @@ const Login = () => {
               minLength={2}
               maxLength={30}
               required={true}
-              validation
-              />
+            />
           </label>
           <label className='login__label'>Пароль
             <input

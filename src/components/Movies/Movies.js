@@ -8,7 +8,9 @@ const Movies = () => {
     <>
     <SearchForm />
     <MoviesCardList />
+    <button className='movie__btn-more'>Ещё</button>
     </>
   )
 }
- export default Movies;
+
+export default Movies;

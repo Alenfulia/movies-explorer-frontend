@@ -13,7 +13,7 @@ const Header = ({loggedIn}) => {
 
     return (
       location.pathname === '/'  ? (
-      <header className='header header-promo'>
+        <header className='header header-promo'>
         <Logo />
         <Navigation />
       </header>
@@ -23,7 +23,7 @@ const Header = ({loggedIn}) => {
         <NavigationLoggedIn  />
       </header>
     )
-    )
+  )
 
 
 }

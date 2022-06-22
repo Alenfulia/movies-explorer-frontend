@@ -79,7 +79,8 @@
 
   .about-me {
     margin: 90px 50px;
-    gap: 0;
+    column-gap: 49px;
+    row-gap: 0;
     grid-template-columns: 1fr 255px;
   }
 

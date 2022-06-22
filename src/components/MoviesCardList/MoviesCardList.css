@@ -18,19 +18,7 @@
   width: 100%;
 }
 
-.movies-list__more {
-  width: 320px;
-  height: 36px;
-  background: #F9F9F9;
-  color: #000;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 14.52px;
-  text-align: center;
-  border-radius: 6px;
-  cursor: pointer;
-  border: none;
-}
+
 
 @media (max-width: 1279px) {
 
