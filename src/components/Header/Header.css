@@ -1,0 +1,33 @@
+.header {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 70px 0 70px;
+}
+
+.header-promo {
+  background-color: #F3C1F8;
+}
+
+.header-login {
+  background-color: #fff;
+
+}
+
+
+@media (max-width: 768px) {
+
+  .header {
+    padding: 0 50px 0 50px;
+  }
+
+}
+
+@media (max-width: 350px) {
+
+  .header {
+    padding: 0 14px 0 14px;
+  }
+
+}

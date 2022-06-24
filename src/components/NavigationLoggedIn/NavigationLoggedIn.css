@@ -1,0 +1,93 @@
+.navigation-log {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation-log__menu {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items:center;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.navigation-log__menu-link {
+  cursor: pointer;
+  margin: auto;
+}
+
+.navigation-log__link-films {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  padding-right: 20px;
+}
+
+.navigation-log__link-save-films {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  padding-right: 50px;
+}
+
+.navigation-log__link-account {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  padding-right: 13px;
+}
+
+.navigation-log__img-button {
+  background-color: #F9F9F9;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.navigation-log__img {
+  position: center;
+}
+
+.navigation-log__burger-btn {
+  display: none;
+  height: 44px;
+  width: 44px;
+  background: url('../../images/header-burger.svg') no-repeat;
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
+
+  .navigation-log__menu {
+    display: none;
+  }
+
+  .navigation-log__burger-btn {
+    display: block;
+  }
+
+}
+
+@media (max-width: 350px) {
+  .navigation-log__burger-btn {
+    top: 15px;
+    right: 14px;
+  }
+}
