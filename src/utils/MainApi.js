@@ -56,7 +56,7 @@ export const getUserInfo = (jwt) => {
     credentials: 'include',
     headers: {
       ...headers,
-      "Authorization": `Bearer ${jwt}`,
+      'Authorization': `Bearer ${jwt}`,
     },
   })
   .then((res) => _parseResponse(res));
@@ -68,7 +68,7 @@ export const setUserInfo = (data, jwt) => {
     method: 'PATCH',
     headers: {
       ...headers,
-      "Authorization": `Bearer ${jwt}`,
+      'Authorization': `Bearer ${jwt}`,
     },
     body: JSON.stringify({
       name: data.name,
@@ -83,17 +83,23 @@ export const getMovies  = (jwt) => {
   return fetch (`${baseUrl}/movies`,{
     method: 'GET',
     credentials: 'include',
-    headers,
+    headers: {
+      ...headers,
+      'Authorization': `Bearer ${jwt}`,
+    },
   })
   .then((res) => _parseResponse(res));
 }
 
   //Сохранение фильмов
-export const saveMovie = (movie) => {
+export const saveMovie = (movie,jwt) => {
   return fetch (`${baseUrl}/movies`,{
     method: 'POST',
     credentials: 'include',
-    headers,
+    headers: {
+      ...headers,
+      'Authorization': `Bearer ${jwt}`,
+    },
     body: JSON.stringify({
       movieId: movie.id,
       country: movie.country,
@@ -108,16 +114,19 @@ export const saveMovie = (movie) => {
       thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`,
     })
   })
-    .then(this._parseResponse);
+  .then((res) => _parseResponse(res));
 };
 
   // Удаление фильмов
-export const deleteMovie = (movieId) => {
+export const deleteMovie = (movieId, jwt) => {
   return fetch (`${baseUrl}/movies/${movieId}`, {
     method: 'DELETE',
     credentials: 'include',
-    headers,
+    headers: {
+      ...headers,
+      'Authorization': `Bearer ${jwt}`,
+    },
   })
-  .then(this._parseResponse);
+  .then((res) => _parseResponse(res));
 };
 

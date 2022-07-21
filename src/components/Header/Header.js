@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import Logo from '../Logo/Logo';
 import Navigation from '../Navigation/Navigation';
 import NavigationLoggedIn from '../NavigationLoggedIn/NavigationLoggedIn';
@@ -8,24 +7,22 @@ import NavigationLoggedIn from '../NavigationLoggedIn/NavigationLoggedIn';
 import './Header.css';
 
 
-const Header = ({loggedIn}) => {
-  const location = useLocation();
+const Header = ({ loggedIn }) => {
 
-    return (
-      location.pathname === '/'  ? (
-        <header className='header header-promo'>
-        <Logo />
-        <Navigation />
-      </header>
-    ) : (
-      <header className='header header-login'>
-        <Logo />
-        <NavigationLoggedIn  />
-      </header>
-    )
+  return (
+    <header className='header'>
+      <Logo />
+      {!loggedIn ? (
+        <div className='header-promo'>
+          <Navigation />
+        </div>
+      ) : (
+        <div className='header-login'>
+          <NavigationLoggedIn  />
+        </div>
+      )}
+    </header>
   )
-
-
 }
 
 export default Header;

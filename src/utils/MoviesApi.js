@@ -4,7 +4,6 @@ class MoviesApi {
     this.headers = headers;
   }
 
-  // Вывод ошибки
   _parseResponse(res) {
     if (res.ok) {
       return res.json();
@@ -12,7 +11,7 @@ class MoviesApi {
     return Promise.reject(`Ошибка ${res.status}: ${res.statusText}`);
   }
 
-  getMovies() {
+  getMoviesAll() {
     return fetch(`${this.baseUrl}`, {
       method: 'GET',
       headers: this.headers,

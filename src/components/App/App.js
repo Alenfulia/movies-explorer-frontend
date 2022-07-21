@@ -21,11 +21,23 @@ import './App.css';
 function App() {
 
   const history = useHistory();
-  const jwt = localStorage.getItem('jwt');
   const location = useLocation();
+
 
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
+  const [movies, setMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [allMovies, setAllMovies] = useState(
+    JSON.parse(localStorage.getItem('loadedMovies')) || []
+  );
+  const [filteredMovies, setFilteredMovies] = useState(
+    JSON.parse(localStorage.getItem('filteredMovies')) || []
+  );
+  const [searchKeyword, setSearchKeyword] = useState(
+    localStorage.getItem('searchKeyword') || ''
+  );
 
   const hideHeaderPaths = ['/not-found', '/signup', '/signin'];
   const hideFooterPaths = ['/not-found','/profile', '/signup', '/signin'];
@@ -33,6 +45,7 @@ function App() {
   const [profileMessage, setProfileMessage] = useState('');
   const [registerMessage, setRegisterMessage] = useState('');
   const [loginMessage, setLoginMessage] = useState('');
+
 
   useEffect(() => {
     if (localStorage.getItem('jwt')) {
@@ -48,17 +61,28 @@ function App() {
 
   useEffect(() => {
     if (loggedIn) {
-      console.log('log from use effect');
-      console.log(localStorage.getItem('jwt'));
       mainApi
         .getUserInfo(localStorage.getItem('jwt'))
         .then((user) => setCurrentUser(user))
         .catch((err) => {
           console.log(`Ошибка получения данных пользователя: ${err}`);
         });
-
+        mainApi
+          .getMovies(localStorage.getItem('jwt'))
+          .then((res) => {
+            setSavedMovies(res);
+            localStorage.setItem('savedMovies', JSON.stringify(res));
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+          if (localStorage.filteredMovies) {
+            setMovies(filteredMovies);
+          }
       }
-    }, [loggedIn])
+    }, [loggedIn, filteredMovies])
+
+
 
 
   const onRegister = ({ name, password, email }) => {
@@ -68,7 +92,6 @@ function App() {
       if (res) {
         onLogin({ email, password });
         setRegisterMessage('Регистрация прошла успешно');
-
       }
     })
     .catch ((err) => {
@@ -82,9 +105,6 @@ function App() {
     .then ((data) => {
       localStorage.setItem('jwt', data.token);
       setLoggedIn(true);
-      console.log("log from onLogin");
-      console.log(data.token)
-      console.log(localStorage.getItem('jwt'));
       mainApi.getUserInfo(localStorage.getItem('jwt'))
         .then((response) => {
           setCurrentUser(response);
@@ -106,13 +126,77 @@ function App() {
       })
   }
 
+
+
+  const searchMovies = (movie, name) => {
+    return movie.filter((movie) =>
+    movie.nameRU.toLowerCase().includes(name.toLowerCase())
+    );
+  }
+
+  const handleSearchMovies = (name) => {
+    setIsLoading(true);
+    const newMovies = searchMovies(allMovies, name);
+    setMovies(newMovies);
+    localStorage.setItem('filteredMovies', JSON.stringify(newMovies));
+    setFilteredMovies(newMovies);
+    localStorage.setItem('searchKeyword', name);
+    setSearchKeyword(name);
+    setTimeout(() => setIsLoading(false), 1000);
+  };
+
+  const handleSaveMovie = (movie) => {
+    mainApi
+      .saveMovie(movie, localStorage.getItem('jwt'))
+      .then((data) => {
+        setSavedMovies([data, ...savedMovies]);
+        localStorage.setItem(
+          'savedMovies',
+          JSON.stringify([data, ...savedMovies])
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleDeleteMovie = (movie) => {
+    const savedMovie = savedMovies.find(
+      (item) => item.movieId === movie.movieId
+    );
+    mainApi
+      .deleteMovie(savedMovie._id, localStorage.getItem('jwt'))
+      .then(() => {
+        const newMoviesList = savedMovies.filter(
+          (item) => item._id !== savedMovie._id
+        );
+        setSavedMovies(newMoviesList);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const signOut = () => {
     localStorage.removeItem('jwt');
+    localStorage.removeItem('checkBox');
+    localStorage.removeItem('searchKeyword');
+    localStorage.removeItem('filteredMovies');
+    localStorage.removeItem('savedMovies');
+    localStorage.removeItem('loadedMovies');
     setLoggedIn(false);
     setCurrentUser({});
     setProfileMessage('');
     setRegisterMessage('');
     setLoginMessage('');
+    setIsLoading(false);
+    setAllMovies([]);
+    setMovies([]);
+    setSavedMovies([]);
+    setCurrentUser({});
+    setSearchKeyword('');
+    setFilteredMovies([]);
+    history.push('/');
   }
 
   return (
@@ -120,11 +204,13 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className='app'>
 
-        {useRouteMatch(hideHeaderPaths) ? null : <Header loggedIn={loggedIn} />}
+        {useRouteMatch(hideHeaderPaths) ? null : (
+          <Header loggedIn={loggedIn} />
+        )}
 
         <Switch>
           <Route path='/' exact>
-            <Main loggedIn={loggedIn} />
+            <Main />
           </Route>
 
           <Route path='/signup'>
@@ -145,12 +231,26 @@ function App() {
             exact
             component={Movies}
             loggedIn={loggedIn}
-            >
-          </ProtectedRoute>
+            isLoading={isLoading}
+            movies={movies}
+            onSubmit={handleSearchMovies}
+            onLike={handleSaveMovie}
+            onDislike={handleDeleteMovie}
+            searchKeyword={searchKeyword}
+            savedMovies={savedMovies}
+            setAllMovies={setAllMovies}
+          />
 
-          <ProtectedRoute path='/saved-movies'>
-            <SavedMovies loggedIn={loggedIn} />
-          </ProtectedRoute>
+          <ProtectedRoute
+            path='/saved-movies'
+            exact
+            component={SavedMovies}
+            loggedIn={loggedIn}
+            isLoading={isLoading}
+            onDislike={handleDeleteMovie}
+            savedMovies={savedMovies}
+            searchKeyword={searchKeyword}
+          />
 
           <ProtectedRoute
             path='/profile'
@@ -163,9 +263,6 @@ function App() {
             >
           </ProtectedRoute>
 
-
-
-
           <Route path='/not-found'>
             <NotFound />
           </Route>
@@ -174,7 +271,7 @@ function App() {
 
         {useRouteMatch(hideFooterPaths) ? null : <Footer />}
 
-      </div>
+    </div>
     </CurrentUserContext.Provider>
   );
 }

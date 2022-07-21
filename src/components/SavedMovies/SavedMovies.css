@@ -1,1 +1,12 @@
+.saved-movies {
+  display: flex;
+  flex-direction: column;
+}
 
+.saved-movies__no-res {
+  padding: 15px 0;
+  color: #A0A0A0;
+  text-align: center;
+  font-size: 18px;
+  margin: 0;
+}
