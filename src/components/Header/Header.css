@@ -4,20 +4,17 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 70px 0 70px;
+  background-color: #fff;
 }
 
 .header-promo {
-  padding: 0;
-  margin: 0;
   background-color: #F3C1F8;
 }
 
 .header-login {
-  padding: 0;
-  margin: 0;
   background-color: #fff;
-
 }
+
 
 
 @media (max-width: 768px) {

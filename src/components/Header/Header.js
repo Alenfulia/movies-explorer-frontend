@@ -9,17 +9,15 @@ import './Header.css';
 
 const Header = ({ loggedIn }) => {
 
+const className = `header ${!loggedIn ? 'header-promo' : 'header-login'}`
+
   return (
-    <header className='header'>
+    <header className={className}>
       <Logo />
       {!loggedIn ? (
-        <div className='header-promo'>
           <Navigation />
-        </div>
       ) : (
-        <div className='header-login'>
           <NavigationLoggedIn  />
-        </div>
       )}
     </header>
   )
