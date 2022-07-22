@@ -86,6 +86,7 @@ const Register = ({ onAuth, infoMessage }) => {
             </span>
           </label>
         </div>
+        <p className='register__info-message'>{infoMessage}</p>
         <button
           className={`register__btn-submit ${!isValid && 'register__btn-submit-disabled'}`}
           type='submit'
@@ -95,7 +96,6 @@ const Register = ({ onAuth, infoMessage }) => {
           Зарегистрироваться
         </button>
       </form>
-
       <div className='register__login'>
         <p className='register__login-text'>Уже зарегистрированы?</p>
         <Link to='/signin' className='register__login-link'>Войти</Link>

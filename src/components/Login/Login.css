@@ -75,6 +75,15 @@
   display: block;
 }
 
+.login__info-message {
+  margin: auto;
+  padding: 0;
+  color: #FF4062;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15.73px;
+}
+
 .login__btn-submit {
   margin: 134px 0 16px;
   width: 396px;

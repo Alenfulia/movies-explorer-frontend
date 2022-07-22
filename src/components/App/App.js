@@ -42,6 +42,7 @@ function App() {
   const hideHeaderPaths = ['/not-found', '/signup', '/signin'];
   const hideFooterPaths = ['/not-found','/profile', '/signup', '/signin'];
 
+
   const [profileMessage, setProfileMessage] = useState('');
   const [registerMessage, setRegisterMessage] = useState('');
   const [loginMessage, setLoginMessage] = useState('');
@@ -95,7 +96,7 @@ function App() {
       }
     })
     .catch ((err) => {
-      setRegisterMessage('Что-то пошло не так...');
+      setRegisterMessage('Проверьте корректность заполнения полей. Одно или несколько полей заполнены неверно.');
     })
   }
 
@@ -111,6 +112,9 @@ function App() {
         });
       setLoginMessage('Авторизация прошла успешно');
       history.push('/movies');
+    })
+    .catch ((err) => {
+      setLoginMessage('Неправильный логин или пароль');
     })
   }
 

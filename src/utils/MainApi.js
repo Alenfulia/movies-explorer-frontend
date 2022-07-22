@@ -36,20 +36,6 @@ export const signin = ({ email, password }) => {
     .then((res) => _parseResponse(res));
 };
 
-  //Получение токена
-// export const getToken = (jwt) => {
-//   console.log (jwt);
-//   return fetch(`${baseUrl}/users/me`, {
-//     method: 'GET',
-//     credentials: 'include',
-//     headers: {
-//       ...headers,
-//       "Authorization": `Bearer ${jwt}`,
-//     },
-//   })
-//   .then((res) => _parseResponse(res));
-// };
-
   // Получение информации о пользователе
 export const getUserInfo = (jwt) => {
   return fetch(`${baseUrl}/users/me`, {

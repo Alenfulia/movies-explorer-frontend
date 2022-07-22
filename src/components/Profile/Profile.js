@@ -83,6 +83,7 @@ const Profile = ({ loggedIn, onUpdateUser, signOut, infoMessage }) => {
               {errors.email}
             </span>
         </div>
+        <p className='profile__info-message'>{infoMessage}</p>
         <button
           className={`profile__btn profile__btn-edit ${
             !buttonDisabled && 'profile__btn-disabled'

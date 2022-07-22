@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../Logo/Logo';
 import './Login.css';
@@ -65,6 +65,7 @@ const Login = ({ onAuth, infoMessage }) => {
             </span>
           </label>
         </div>
+        <p className='login__info-message'>{infoMessage}</p>
         <button
           className={`login__btn-submit ${!isValid && 'login__btn-submit_disabled'}`}
           type='submit'

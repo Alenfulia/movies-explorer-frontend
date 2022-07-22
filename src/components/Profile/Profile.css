@@ -47,6 +47,15 @@
   padding: 0;
 }
 
+.profile__info-message {
+  margin: auto;
+  padding: 0;
+  color: #000;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15.73px;
+}
+
 .profile__btn {
   background: #fff;
   color: #000;
@@ -59,12 +68,19 @@
   margin: 0 auto;
 }
 
+.profile__btn-disabled {
+  background-color: #fff;
+  border: 1px solid #A0A0A0;
+  color: #A0A0A0;
+  cursor: not-allowed;
+}
+
 .profile__btn-submit {
   padding-top: 220px;
 }
 
 .profile__btn-edit {
-  padding-top: 220px;
+  margin-top: 220px;
 }
 
 .profile__btn-exit {

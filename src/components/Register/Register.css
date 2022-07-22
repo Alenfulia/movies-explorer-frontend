@@ -84,6 +84,16 @@
   border: none;
 }
 
+.register__info-message {
+  margin: auto;
+  padding: 0;
+  color: #FF4062;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15.73px;
+}
+
 .register__btn-submit-disabled {
   background-color: #fff;
   border: 1px solid #A0A0A0;
